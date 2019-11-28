@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="A agência Ômega atual na produção de diversos tipos de serviços digitais.">
+    <title>Ômega</title>
+    <!-- Configuração para o ícone de favorito -->
+    <link rel="icon" href="imagens/favicon.png" sizes="32x32">
+    
+    <!-- plugin slick slider -->
+    <link rel="stylesheet" href="plugins/slick/slick.css">
+    <link rel="stylesheet" href="plugins/slick/slick-theme.css">
+    
+    <!-- plugin animate/wow -->
+    <link rel="stylesheet" href="plugins/animate.css">
+    
+    <link rel="stylesheet" href="css/style.css"> 
+    <style>
+    .slick-prev, .slick-next {
+        width: 50px;
+        height: 50px;
+        top:50%;
+    }
+    .slick-prev {
+        left: 2%;
+        z-index: 1;
+    }
+    .slick-next {
+        right: 2%;
+    }
+    .slick-prev:before, .slick-next:before {
+        font-size: 2rem;
+    }
+
+    .conteudo {
+        position: relative;
+        height: 330px;
+        width: 100%;
+    }
+    .conteudo img {
+        position: absolute;
+        z-index: 0;
+    }
+    .conteudo h2 {
+        position: absolute;
+        width: 100%;
+        background-color:rgba(0, 0, 0, 0.719);
+        color: white;
+        z-index: 1;
+        bottom: 0;
+        padding-left: 5px;
+    }
+    </style> 
+</head>
+<body>
+    <!-- CABEÇALHO -->
+    <header>
+        <div>
+            <h1>
+                <a href="index.html">
+                    <img src="imagens/logo.png" alt="">Ômega
+                </a>
+            </h1>
+            <nav>
+                <a href="index.html" class="ativo">Home</a>
+                <a href="o-que-fazemos.html">O que fazemos</a>
+                <a href="nossas-equipes.html">Nossas equipes</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- CONTEÚDO -->
+    <main>
+        <article class="slider">
+            <div>
+                <section class="conteudo">
+                    <img src="imagens/mesa-de-trabalho.jpg" alt="">
+                    <h2>Lorem ipsum dolor sit amet.</h2>
+                </section>
+            </div>
+            <div>
+                <section class="conteudo">
+                    <img src="imagens/bootstrap.jpg" alt="">
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+                </section>
+            </div>
+            <div>
+                <section class="conteudo">
+                    <img src="imagens/tela-com-codigos.jpg" alt="">
+                    <h2>Lorem ipsum dolor sit.</h2>
+                </section>
+            </div>
+        </article>
+
+        <article class="wow bounceInUp">
+            <h2>Outro título</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet perferendis laudantium voluptatibus quod reprehenderit repellendus natus ipsam. Autem, dolorem possimus.</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis corporis perferendis doloremque eum recusandae reiciendis?</p>
+        </article>
+
+        <article class="wow bounceInUp">
+            <h2>Título</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam quo eos deserunt rem! Sint, soluta minima. Qui velit facilis accusamus.</p>
+            <p class="centralizar">
+                <img src="imagens/dispositivos.png" alt="">
+                <img src="imagens/tecnologias.png" alt="">
+            </p>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam sequi assumenda suscipit expedita, ad eum animi tenetur cum voluptatum illo! Animi quis libero doloribus assumenda, facilis dolore. Ipsa, odit fugit?</p>
+        </article>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <h2>Siga-nos!</h2>
+        <aside>
+            <a href="http://facebook.com">
+                <img src="imagens/facebook.png" alt="">
+            </a>
+            <a href="http://instagram.com">
+                <img src="imagens/instagram.png" alt="">
+            </a>
+            <a href="http://linkedin.com">
+                <img src="imagens/linkedin.png" alt="">
+            </a>
+        </aside>
+        <p>Desenvolvido por <b>SEU NOME</b> &copy; 2019</p>
+    </footer>
+    
+<script src="js/jquery-3.4.1.min.js"></script>    
+<script src="plugins/slick/slick.min.js"></script>
+<script src="plugins/wow.min.js"></script>
+<script>
+$(document).ready(function(){
+  $('.slider').slick({
+    autoplay: true
+  });
+});  
+    
+new WOW().init();
+</script>
+</body>
+</html>

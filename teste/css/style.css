@@ -1,0 +1,254 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600|Orbitron:400,700&display=swap');
+
+/* Alteração do Box Model para border-box */
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Etapa 01:
+Regras para o site inteiro, em qualquer situação/tamanho de tela */
+html { font-size: 18px; }
+
+body {
+    font-family: open-sans, sans-serif;
+    background-image: url(../imagens/textura-fundo.png);
+    background-attachment: fixed;
+}
+
+/* Reset de alguns elementos */
+body, h1, h2, h3, p, figure {
+    margin: 0;
+    padding: 0;
+}
+
+/* Flex Containers */
+h1, h1 a, nav, nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    min-height: 60px;
+}
+
+h1 {
+    font-family: Orbitron;
+    height: 60px;
+    font-size: 2.2rem;
+}
+
+h1 a {
+    text-decoration: none;
+    color: black;
+}
+
+h1 img {
+    width: 50px;
+    padding-right: 5px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-family: 'Orbitron';
+    font-weight: bold;
+    font-size: 0.9rem;
+
+    width: 23%;
+    min-height: 50px;
+}
+
+/* Crie uma regra para ao passar
+ou mouse ou usar TAB, mudar
+o fundo pra preto e o texto pra branco */
+nav a:hover, nav a:focus {
+    background-color: black;
+    color: white;           
+}
+
+/* Tornar imagem responsiva */
+img { max-width: 100%; }
+
+/* 1) Criar uma regra para os elementos
+cabeçalho e rodape (juntos), com:
+-cor de fundo em um tom de cinza com um pouco de transparência
+-alinhamento de texto no centro */
+header, footer {
+    background-color: rgba(245, 245, 245, 0.8);
+    text-align: center;
+}
+
+/* 2) Criar uma regra SOMENTE para o cabeçalho, com:
+-borda inferior do tipo sólida e com 1px de espessura
+-margem inferior de 15px */
+header {
+    border-bottom: solid 1px;
+    margin-bottom: 15px;
+}
+
+/* 3) Criar uma regra SOMENTE para o rodapé, com:
+-borda superior do tipo sólida e com 1px de espessura
+-espaçamento interno (dentro) de 1% */
+footer {
+    border-top: solid 1px;
+    padding: 1%;
+}
+
+main {
+    width: 95%;
+    margin: auto;
+}
+
+article {
+    background-color: white;
+    padding: 2%;
+    box-shadow: grey 1px 1px 5px;
+    margin: 15px 0;
+}
+
+h2, h3, p { padding: 1% 0; }
+
+h2 {
+    font-family: 'Orbitron';
+    font-size: 1.3rem;
+}
+
+p { font-size: 0.9rem; }
+
+footer p { font-size: 0.6rem; }
+
+a { text-decoration: none; }
+
+footer img { margin: 0 5px; }
+
+.centralizar { text-align: center; }
+
+.ativo { border: solid 1px; }
+
+h3 {
+    font-family: 'Orbitron';
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    text-shadow: black 1px 1px 2px;
+}
+
+section, figure { margin: 3% 0; }
+
+figcaption {
+    text-align: center;
+    font-weight: bold;
+}
+
+figure img { border-radius: 5px; }
+
+/* Regras para o formulário */
+form {
+    max-width: 700px;
+    width: 95%;
+    margin: auto;
+}
+
+/* #nome, #email, #telefone, #assunto, #mensagem { */
+input, textarea {
+    border: solid 2px;
+    font-size: 1.1rem;
+    width: 100%;
+    padding: 1%;
+}
+
+label { font-weight: bold; }
+
+button {
+    border: none;
+    padding: 20px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    font-family: 'Orbitron';
+}
+
+button:hover, button:focus {
+    background-color: darkblue;
+}
+
+/* Etapa 02:
+Regras para determinados tamanhos de tela: 
+Media Queries */
+
+/* 1º Breakpoint para telas a partir de 700px */
+@media screen and (min-width: 700px){
+    header div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    h1 {
+        margin-left: 2.5%;
+    }
+
+    nav {
+        margin-right: 2.5%;
+        justify-content: space-around;
+    }
+
+    header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 100;
+    }
+
+    main { margin-top: 70px; }
+
+    .cards { 
+        display: flex; 
+        flex-wrap: wrap; /* Quebra nas colunas flex */
+        justify-content: space-between;
+    }
+    section, figure {
+        width: 49%;
+        margin: 1% 0;
+    }
+}
+
+/* 2º Breakpoint para telas a partir de 870px */
+
+/* Exercício:
+Criar uma media query para telas a partir de 870px, com as seguintes regras:
+-html: tamanho da fonte de 20px
+-cabeçalho: altura de 70px
+-div contida no cabeçalho: altura herdada (pesquisar)
+-conteúdo principal: margem superior de 80px
+-imagem do logotipo/nome do site: largura de 60px */
+@media screen and (min-width: 870px){
+    html { font-size: 20px; }
+    header { height: 70px; }
+    
+    /* valor herdado */
+    header div { height: inherit;  } 
+
+    main { margin-top: 80px; }
+    h1 img { width: 60px; }
+}
+
+/* 3º Breakpoint para telas a partir de 1000px */
+@media screen and (min-width: 1000px){
+    header div, main {
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    html { font-size: 22px; }
+    h1 { margin-left: 0; }
+    nav { 
+        width: 65%;
+        margin-right: 0;
+    }
+}
