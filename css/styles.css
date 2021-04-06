@@ -135,3 +135,4 @@ b.light-color{ color: #444; }
 	
 .main-area .social-btn > li > a:hover:after{ transform: translateX(100%); }
 
+.emoji { font-size: 3rem; }
