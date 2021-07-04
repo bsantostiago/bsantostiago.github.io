@@ -1,0 +1,330 @@
+/* Regras CSS
+Seletores que modificam a aparência do site todo, considerando
+inicialmente a abordagem Desktop First */
+
+/* Alterando o Box Model */
+* { box-sizing: border-box; }
+
+/* Alterando o tamanho de fonte
+padrão para o elemento raíz (html) */
+html { font-size: 18px; }
+
+body {
+    background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Solucionando o problema do rodapé fixo
+    (parte 1) */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Solucionando o problema do rodapé fixo
+(parte 2) */
+main { flex: 1; }
+
+a { text-decoration: none; }
+
+header {
+    background-color: white;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+/* Reset */
+body, h1, h2, p, figure {
+    margin: 0;
+    padding: 0;
+}
+
+/* Classe necessária para evitar o comportamento
+de afastamento infinito. */
+.limitador {
+    max-width: 1100px;
+    margin: auto;
+    width: 95%;
+}
+
+header .limitador {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Tornando as imagens responsivas */
+img { max-width: 100%; }
+
+
+h1, nav { text-transform: uppercase; }
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+h1 a {
+    background-color: black;
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 5px;
+}
+
+nav { width: 70%; }
+
+nav h2 { 
+    margin: 0; 
+    padding: 0;
+    text-align: right; 
+}
+
+nav h2 a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+    padding: 1rem;
+    display: inline-block;
+    height: 50px;
+}
+nav h2 a:hover, nav h2 a:focus, .menu li a:hover, .menu li a:focus {
+    background-color:gainsboro;
+}
+
+.menu { 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: none;
+}
+
+.menu li, .menu li a {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+}
+
+
+
+.icone { font-size: 1.2rem;}
+
+/* Aplicado via JS */
+.menu.aberto { 
+    display: flex; 
+    flex-direction: column;
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+
+
+
+.destaque {
+    background-image: url(../imagens/fundo-destaque.jpg);
+    height: 88vh;
+    color: white;
+    background-attachment: fixed;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+
+    text-align: center;
+}
+
+.destaque h2 {
+    width: 100%;
+    font-size: 5rem;
+
+    animation-name: fadeIn;
+    animation-duration: 1.5s;
+    
+    /* Em modo de loop (repetindo pra sempre) */
+    /* animation-iteration-count: infinite; */
+}
+
+.destaque p {
+    width: 100%;
+    font-size: 2rem;
+    font-weight: bold;
+
+    /* Versão completa */
+    /* animation-name: animaTexto;
+    animation-duration: 1.5s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards; */
+
+    /* Versão abreviada */
+    animation: fadeIn 1.5s 1s backwards;
+}
+
+
+/* Regras de Animação */
+@keyframes fadeIn {
+    /* Dê (como inicia) opacidade zero (0)... */
+    from { opacity: 0; }
+
+    /* Para (como termina) opacidade um (1). */
+    to { opacity: 1; }
+}
+
+
+
+
+
+article h2 { 
+    text-align: center;
+    padding: 1rem; 
+}
+
+article p { 
+    padding: 0.5rem 0;
+}
+
+figure { 
+    text-align: center; 
+    margin-bottom: 1rem;
+}
+
+.historia {
+    background-image: url(../imagens/fundo-madeira.jpg);
+    color: white;   
+    background-attachment: fixed;
+    background-size: cover;
+    text-align: center;
+
+    padding-bottom: 1rem;
+}
+
+.historia iframe {
+    width: 100%;
+    max-width: 800px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    height: 15vh;
+    font-weight: bold;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.conteudo {
+    background-color: lavender;
+    padding: 0.7rem;
+    border-radius: 7px;
+}
+
+table, td, th {
+    border: solid 2px black;
+    border-collapse: collapse;
+}
+
+caption { 
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+table {
+    width: 80%;
+    margin: auto;
+    max-width: 700px;
+}
+
+th { 
+    background-color: black;
+    color: white;
+}
+
+td { background-color: white; }
+
+th, td {
+    width: 33%;
+    padding: 0.5rem;
+}
+
+/* SOLUÇÃO 1: USAR CLASSES */
+.produto { text-transform: uppercase; }
+.prazo { text-align: center; }
+.valor { color: blue; }
+
+/* SOLUÇÃO 2: USAR PSEUDO-CLASSES */
+td:first-child { text-transform: uppercase; }
+td:nth-child(2) { text-align: center; }
+td:last-child { color: blue; }
+
+
+
+form {
+    max-width: 500px;
+    width: 80%;
+    margin: auto;
+    background-color: whitesmoke;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+/* seletor :not()
+Usado em casos em que queremos criar
+exceções. No exemplo abaixo, formatamos
+todos os inputs exceto os do tipo radio e
+checkbox. */
+input:not([type=radio]):not([type="checkbox"]), 
+select, textarea {
+    width: 100%;
+    height: 50px;
+}
+
+textarea { height: auto; }
+
+button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+button:hover, button:focus {
+    background-color: darkblue;
+}
+
+
+form > div { margin-top: 1rem;}
+
+@media screen and (min-width: 530px){
+    .botao-menu { display: none; }
+    .menu { display: flex; }
+}
+
+@media screen and (max-width: 820px) {
+    html { font-size: 16px; }
+}
+
+@media screen and (max-width: 726px){
+    .destaque h2 { font-size: 4.2rem; }
+    .destaque p { font-size: 1.6rem; }
+}
+
+@media screen and (max-width: 594px) {
+    html { font-size: 14px; }
+    .destaque { height: 83vh; }
+}
